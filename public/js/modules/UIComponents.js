@@ -39,7 +39,7 @@ const UIComponents = (function() {
         });
         const avatarSrc = avatars && avatars.startsWith("http") 
             ? avatars
-            : ['.jpg','.jpeg','.png'].some(extension => avatars.endsWith(extension))
+            : avatars && ['.jpg','.jpeg','.png'].some(extension => avatars.endsWith(extension))
             ? 'img/avatars/' + avatars
             : 'img/avatars/default.png';
 
@@ -75,7 +75,7 @@ const UIComponents = (function() {
         
         const iconSrc = icon && icon.startsWith("http")
             ? icon 
-            : ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))
+            : icon && ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))
             ? 'img/servers/icon/' + icon
             : 'img/servers/icon/default.png';
             
@@ -126,7 +126,7 @@ const UIComponents = (function() {
         // Avatar avec fallback
         const avatarSrc = icon && icon.startsWith("http") 
             ? icon 
-            : ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))
+            : icon && ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))
             ? 'img/avatars/' + icon
             : 'img/avatars/default.png';
 
@@ -204,11 +204,13 @@ const UIComponents = (function() {
     function createHeaderServer(serverid,nom,banner){
         var $container = $('<div>',{class : 'serveur_salon',id : serverid});
 
+        console.log(banner)
         const Vbanner = banner && banner.startsWith("http") 
                 ? banner 
-                : ['.jpg','.jpeg','.png'].some(extension => banner.endsWith(extension))
+                : banner && ['.jpg','.jpeg','.png'].some(extension => banner.endsWith(extension))
                 ? 'img/servers/banner/' + banner
                 : 'img/servers/banner/default.jpg';
+        console.log(Vbanner)
 
         var $bannerSrc = $('<img>',{class : 'banner-img banner-serv', alt : 'banner-server',src : Vbanner});
         var $serverContent = $('<div>',{class : 'server-content'});
@@ -242,7 +244,7 @@ const UIComponents = (function() {
         
         const bannerSrc = banner && banner.startsWith("http")  
             ? banner 
-            : ['.jpg','.jpeg','.png'].some(extension => banner.endsWith(extension))
+            : banner && ['.jpg','.jpeg','.png'].some(extension => banner.endsWith(extension))
             ? 'img/servers/banner/' + banner
             : 'img/servers/banner/default.png';
 
@@ -254,7 +256,7 @@ const UIComponents = (function() {
         
         const iconSrc = icon && icon.startsWith("http") 
             ? icon 
-            : ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))
+            : icon && ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))
             ? 'img/servers/icon/' + icon
             : 'img/servers/icon/default.png';
 
@@ -399,7 +401,7 @@ function AffichageInfoServer(id,nom,avatars){
         });
         const avatarSrc = avatars && avatars.startsWith("http") 
             ? avatars 
-            : ['.jpg','.jpeg','.png'].some(extension => avatars.endsWith(extension))
+            : avatars && ['.jpg','.jpeg','.png'].some(extension => avatars.endsWith(extension))
             ? 'img/avatars/' + avatars
             : 'img/avatars/default.png';
         var $avatar = $('<img>', {
@@ -419,13 +421,13 @@ function AffichageInfoServer(id,nom,avatars){
 function InfoUser(userID, nickname, nom, icon, banner, bios,canManageRoles, allRoles, memberRoles) {
     const bannerSrc = banner && banner.startsWith("http") 
                     ? banner 
-                    : ['.jpg','.jpeg','.png'].some(extension => banner.endsWith(extension)) 
+                    : banner && ['.jpg','.jpeg','.png'].some(extension => banner.endsWith(extension)) 
                     ?  'img/banner/' + banner
                     : 'img/banner/default.jpg';
 
     const iconSrc   = icon && icon.startsWith("http")   
                     ? icon 
-                    : ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))  
+                    : icon && ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))  
                     ? 'img/avatars/' + icon       
                     : 'img/avatars/default.png';
 
@@ -503,13 +505,13 @@ function createRoleModal(allRole,MemberRole,UserId){
 function InfoUserMp(userID, nickname, nom, icon, banner, bios) {
     const bannerSrc = banner && banner.startsWith("http") 
                     ? banner 
-                    : ['.jpg','.jpeg','.png'].some(extension => banner.endsWith(extension))
+                    : banner && ['.jpg','.jpeg','.png'].some(extension => banner.endsWith(extension))
                     ? 'img/banner/' + banner
                     : 'img/banner/default.jpg';
 
     const iconSrc   = icon && icon.startsWith("http")   
                     ? icon      
-                    : ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))
+                    : icon && ['.jpg','.jpeg','.png'].some(extension => icon.endsWith(extension))
                     ? 'img/avatars/'+ icon    
                     : 'img/avatars/default.png';
 
