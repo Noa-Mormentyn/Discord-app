@@ -30,7 +30,7 @@ try {
     if ($user) {
         $_SESSION['user'] = $user->getId();
         $_SESSION['username'] = $user->getNom();
-        echo json_encode(['status' => 'OK']);
+        echo json_encode(['status' => 'success']);
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Identifiants incorrects']);
     }

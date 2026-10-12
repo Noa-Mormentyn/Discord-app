@@ -60,7 +60,6 @@ try {
             echo json_encode(['status' => 'error', 'message' => 'Email manquant']);
             exit;
         }
-
         $user = $repo->findByEmail($email);
 
         if ($user) {

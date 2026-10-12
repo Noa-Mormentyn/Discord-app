@@ -20,8 +20,8 @@ class EmailNotificationService implements NotificationInterface
         $this->mailer->isSMTP();
         $this->mailer->Host = 'sandbox.smtp.mailtrap.io';
         $this->mailer->SMTPAuth = true;
-        $this->mailer->Username = '0cc9fe8d9e064a';  // TON USERNAME MAILTRAP
-        $this->mailer->Password = 'ad6831cee0a63c';  // TON PASSWORD MAILTRAP
+        $this->mailer->Username = 'c577406394356e';  // TON USERNAME MAILTRAP
+        $this->mailer->Password = 'd7a8462f421d5a';  // TON PASSWORD MAILTRAP
         $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $this->mailer->Port = 2525;
         $this->mailer->CharSet = 'UTF-8';
@@ -48,7 +48,7 @@ class EmailNotificationService implements NotificationInterface
     // Méthode spécifique pour reset password
     public function sendPasswordReset(string $email, string $userName, string $token): bool
     {
-        $resetLink = 'http://localhost:8000/php/reset_password.php?token=' . $token;
+        $resetLink = $_ENV['APP_URL'] . '/php/api/auth/password.php?token=' . $token;
 
         $message = "<style>
             body {

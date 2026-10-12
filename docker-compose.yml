@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - ${PHP_PORT:-8080}:80
+    volumes:
+      # Code monté à chaud ; vendor/ reste celui de l'image (non monté volontairement)
+      - ./src:/var/www/html/src
+      - ./public:/var/www/html/public
+      # Database.php charge un fichier .env : on lui fournit celui du mode Docker
+      - ./.env:/var/www/html/.env:ro

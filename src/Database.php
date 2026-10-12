@@ -105,8 +105,8 @@ class Database
  * AVANT (dans CHAQUE fichier) :
  * $serveur = "localhost";
  * $port = "5432";
- * $utilisateur = "noa";
- * $motDePasse = "leonoa09";
+ * $utilisateur = user;
+ * $motDePasse = mdp;
  * $nomBase = "discord";
  * try {
  *     $connexion = new PDO(...);

@@ -7,7 +7,7 @@ $(document).ready(function() {
 
          API.login(emailValue,motValue)
             .then(function (reponse) {
-                if (reponse.status == 'OK') {
+                if (reponse.status == 'success') {
                     window.location.href = "salon.html";
                 } else {
                     Validation.showToast("Erreur : mot de passe ou email incorrect", 'error');
@@ -28,7 +28,7 @@ $(document).ready(function() {
         } else {
             API.requestPasswordReset(emailValue)
             .then(function (reponse) {
-                if (reponse.status == 'OK') {
+                if (reponse.status == 'success') {
                             Validation.showToast("Veuillez vérifier votre boîte mail, un lien vous a été envoyé pour modifier votre mot de passe",'info',3000);
                         } else {
                             Validation.showToast("Une erreur est survenue lors de l'envoi du mail","error",3000);

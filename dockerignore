@@ -1,0 +1,6 @@
+.git
+vendor
+.env
+.env.docker
+docs
+README.md
